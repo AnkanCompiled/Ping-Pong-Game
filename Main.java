@@ -1,4 +1,4 @@
-import java.awt.Dimension;
+import java.awt.Insets;
 import javax.swing.JFrame;
 
 class GameFrame extends JFrame {
@@ -7,7 +7,9 @@ class GameFrame extends JFrame {
         this.add(game);
         this.setTitle("Ping Pong");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setPreferredSize(new Dimension(game.SCREEN_WIDTH, game.SCREEN_HEIGHT));
+        Insets insets = this.getInsets();
+        this.setSize(game.getPreferredSize().width + insets.left + insets.right,
+        game.getPreferredSize().height + insets.top + insets.bottom);
         this.setResizable(false);
         this.pack();
         this.setVisible(true);  
